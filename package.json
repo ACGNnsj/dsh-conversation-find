@@ -4,14 +4,35 @@
   "description": "DSH 主界面查找（类浏览器 Ctrl+F）：会话页只搜消息流，其他页面搜整页，高亮并逐条跳转。",
   "type": "module",
   "license": "MIT",
+  "author": "ACGNnsj",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
     "./package.json": "./package.json"
   },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "find",
+    "search",
+    "ctrl-f"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ACGNnsj/dsh-conversation-find.git"
+  },
+  "homepage": "https://github.com/ACGNnsj/dsh-conversation-find#readme",
+  "bugs": {
+    "url": "https://github.com/ACGNnsj/dsh-conversation-find/issues"
+  },
   "engines": {
     "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dsh": {
     "bundle": {
@@ -29,6 +50,7 @@
     "lib/index.js",
     "lib/client.js",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ]
 }
