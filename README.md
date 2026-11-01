@@ -82,6 +82,23 @@ lib/client.js       # 全部逻辑：查找条 + 高亮 + 跳转 + 设置行
 - **0.2.0** 快捷键偏好设置 + 自动降级。
 - **0.1.0** 首个可用版本：会话内查找、高亮、跳转。
 
+## 发布（维护者）
+
+首次发布需要手工一次（npm 的 Trusted Publishing 要求包已存在）：
+
+```bash
+npm publish --access public
+```
+
+之后走 CI：`.github/workflows/publish.yml` 监听 `v*` 标签，用 OIDC（Trusted Publishing）发布并带 provenance：
+
+```bash
+npm version patch
+git push --follow-tags
+```
+
+需要先在 npmjs.com 该包 → Settings → Trusted Publisher → GitHub Actions 填：org `ACGNnsj`、repo `dsh-conversation-find`、workflow `publish.yml`、environment 留空。
+
 ## License
 
 MIT
