@@ -9,12 +9,22 @@
 
 | 操作 | 键 |
 | --- | --- |
-| 打开 / 关闭查找条 | `Ctrl+F`（macOS：`Cmd+F`；也支持 `Ctrl+Shift+F`） |
-| 下一个命中 | `Enter` 或 ⌄ |
-| 上一个命中 | `Shift+Enter` 或 ⌃ |
+| 打开 / 关闭查找条 | `Ctrl+F`（macOS：`Cmd+F`）；「自动」模式同时监听 `Ctrl+Shift+F` 与 `Alt+F` |
+| 下一个命中 | `Enter`、`F3` 或 ⌄ |
+| 上一个命中 | `Shift+Enter`、`Shift+F3` 或 ⌃ |
 | 关闭 | `Esc` |
 
 会话头部右侧还有一个放大镜按钮，效果相同（快捷键被宿主菜单截走时用它）。
+
+### 快捷键可改
+
+设置 → 通用 → **页面查找快捷键**，可选：
+
+- **自动**（默认）：`Ctrl+F`、`Ctrl+Shift+F`、`Alt+F` 三个组合同时监听。宿主菜单若抢走 `Ctrl+F`，页面根本收不到这个按键，另外两个仍然生效 —— 这就是自动降级。
+- 固定某一个：`Ctrl+F` / `Ctrl+Shift+F` / `Alt+F` / `F3`。
+
+选择存在 `localStorage`（`dsh-conversation-find:shortcut`），刷新后仍在。
+
 
 ## 行为
 
