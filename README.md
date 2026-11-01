@@ -1,5 +1,8 @@
 # dsh-conversation-find
 
+[![npm version](https://img.shields.io/npm/v/dsh-conversation-find.svg)](https://www.npmjs.com/package/dsh-conversation-find)
+[![license](https://img.shields.io/npm/l/dsh-conversation-find.svg)](./LICENSE)
+
 在 DeepSeek Harness 主界面里查找，像浏览器 `Ctrl+F` 一样：搜当前页面文本、全部高亮、逐条跳转。
 
 - **会话页**：只搜当前会话的消息流（含代码块、diff、工具输出），计数干净，不带侧栏和输入框的噪声。
@@ -75,6 +78,7 @@ lib/client.js       # 全部逻辑：查找条 + 高亮 + 跳转 + 设置行
 
 ## 变更记录
 
+- **0.2.6** README 加 npm 版本与许可证徽章，npm 页面与仓库同步。
 - **0.2.5** 修复插件热重载后旧 `<style>` 残留导致新样式不生效。
 - **0.2.4** 设置行改用宿主 `Menu` 组件，下拉与宿主同款深色浮层。
 - **0.2.3** 设置行尺寸、间距、配色逐条对齐宿主观感行。
