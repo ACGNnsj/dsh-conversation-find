@@ -3,11 +3,24 @@
 [![npm version](https://img.shields.io/npm/v/dsh-conversation-find.svg)](https://www.npmjs.com/package/dsh-conversation-find)
 [![license](https://img.shields.io/npm/l/dsh-conversation-find.svg)](./LICENSE)
 
+<p align="center"><img src="./assets/icon-180.png" width="96" height="96" alt="dsh-conversation-find"></p>
+
 在 DeepSeek Harness 主界面里查找，像浏览器 `Ctrl+F` 一样：搜当前页面文本、全部高亮、逐条跳转。
 
 - **会话页**：只搜当前会话的消息流（含代码块、diff、工具输出），计数干净，不带侧栏和输入框的噪声。
 - **其他页面**（设置、插件、插件市场、画布…）：搜整页，等同浏览器自带查找。
 - 浮层查找条自动落在头部标签栏的分割线下方，不遮挡标签栏。
+
+## 界面
+
+![会话页查找](assets/shot-conversation.png)
+
+![设置里的快捷键选择](assets/shot-settings.png)
+
+![非会话页按整页搜索](assets/shot-plugins.png)
+
+> 上面三张是按插件自己的样式表、对着宿主主题 token 渲染出来的预览（`assets/`），用来说明交互与外观，不是桌面端截图。
+
 
 ## 安装
 
