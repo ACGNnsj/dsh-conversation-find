@@ -1,0 +1,35 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # required for npm Trusted Publishing (OIDC)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Node 24 ships npm >= 11.5.1, the first version that supports OIDC
+      # token exchange. Node 22 ships npm 10 and will fail.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Sanity check
+        run: |
+          node --check lib/client.js
+          node -e "const p=require('./package.json'); if(!p.name||!p.version) process.exit(1)"
+
+      # NODE_AUTH_TOKEN must be COMPLETELY ABSENT here, not an empty string:
+      # npm only falls back to the OIDC exchange when no token env var exists.
+      - name: Publish to npm
+        run: npm publish --provenance --access public
