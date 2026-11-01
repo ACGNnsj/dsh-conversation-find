@@ -1,0 +1,7 @@
+# dsh-conversation-find bundle layer.
+# The bundle patch declares only the insert row for this package; the profile
+# boot merges it into the bundle stack. Row id stays stable so re-installs and
+# profile patches can target it.
+- insert:
+    - id: conversation-find
+      name: 'dsh-conversation-find'
