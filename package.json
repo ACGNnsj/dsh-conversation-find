@@ -1,7 +1,7 @@
 {
   "name": "dsh-conversation-find",
   "version": "0.1.0",
-  "description": "会话内查找（类浏览器 Ctrl+F）：Ctrl+Shift+F 打开浮层查找条，在当前会话已渲染消息中高亮并逐条跳转。",
+  "description": "DSH 主界面查找（类浏览器 Ctrl+F）：会话页只搜消息流，其他页面搜整页，高亮并逐条跳转。",
   "type": "module",
   "license": "MIT",
   "main": "lib/index.js",
