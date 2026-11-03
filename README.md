@@ -68,6 +68,7 @@ dsh plugin --profile desktop add file:D:/path/to/dsh-conversation-find
 
 - 只搜**当前已挂载到 DOM** 的文本。被分页或虚拟化掉的历史不会计入——滚动加载更多后需要重新输入一次。
 - 搜的是渲染后的文本，不是原始 markdown 源码。
+- **不搜输入框和编辑器里的内容**。把可编辑区域的文字包成 `<mark>` 会让编辑器把这段文字丢掉（输入框里的字会消失），所以 `contenteditable` / `textarea` 一律跳过。
 - 暂不支持正则、大小写敏感、整词匹配（当前固定：不区分大小写的子串匹配）。
 
 ## 实现
