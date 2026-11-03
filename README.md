@@ -56,6 +56,15 @@ dsh plugin --profile desktop add file:D:/path/to/dsh-conversation-find
 
 选择存在 `localStorage` 的 `dsh-conversation-find:shortcut`，刷新后仍在。
 
+### 搜索范围可改
+
+设置 → 通用 → **页面查找范围**：
+
+- **正文区**（默认）：会话页只搜消息流；其他页面跳过左侧会话列表与导航，只搜主体内容。
+- **整页**：像浏览器一样，把侧栏和页面外壳一起搜。
+
+选择存在 `localStorage` 的 `dsh-conversation-find:scope`。
+
 ## 行为
 
 - 输入即搜（120ms 防抖），命中全部包一层 `<mark>`，右端显示 `当前/总数`。
@@ -63,6 +72,7 @@ dsh plugin --profile desktop add file:D:/path/to/dsh-conversation-find
 - 查找条位置按当前作用域实时测量；窗口缩放会重算。
 - 会话流式输出、路由切换、React 重渲染后高亮自动重贴（`MutationObserver` + 400ms 抑制窗口 + 250ms 防抖）。
 - 查找条自身不参与搜索，已有高亮不会被二次命中。
+- 默认跳过输入框、编辑器和左侧会话列表（包 `<mark>` 会让编辑器丢字，见下方已知限制）。
 
 ## 已知限制
 
@@ -92,6 +102,8 @@ lib/client.js       # 全部逻辑：查找条 + 高亮 + 跳转 + 设置行
 
 ## 变更记录
 
+- **0.2.9** 新增「页面查找范围」设置，默认不搜左侧会话列表与导航。
+- **0.2.8** 不再搜索输入框与编辑器内部，修复聊天输入框里的文字被清空。
 - **0.2.6** README 加 npm 版本与许可证徽章，npm 页面与仓库同步。
 - **0.2.5** 修复插件热重载后旧 `<style>` 残留导致新样式不生效。
 - **0.2.4** 设置行改用宿主 `Menu` 组件，下拉与宿主同款深色浮层。
