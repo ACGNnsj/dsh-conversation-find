@@ -13,13 +13,11 @@
 
 ## 界面
 
-![会话页查找](assets/shot-conversation.png)
+![会话页查找](assets/shot-conversation.jpg)
 
-![设置里的快捷键选择](assets/shot-settings.png)
+![设置里的范围与快捷键](assets/shot-settings.jpg)
 
-![非会话页按整页搜索](assets/shot-plugins.png)
-
-> 上面三张是按插件自己的样式表、对着宿主主题 token 渲染出来的预览（`assets/`），用来说明交互与外观，不是桌面端截图。
+> 上面两张是桌面端实拍：会话页开着查找条（搜 `ct`，1/27 处命中），以及设置 → 通用里的「页面查找范围」与「页面查找快捷键」。
 
 
 ## 安装
