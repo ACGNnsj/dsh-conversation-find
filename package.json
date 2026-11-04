@@ -1,6 +1,6 @@
 {
   "name": "dsh-conversation-find",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "DSH 主界面查找（类浏览器 Ctrl+F）：会话页只搜消息流，其他页面搜整页，高亮并逐条跳转。",
   "type": "module",
   "license": "MIT",
