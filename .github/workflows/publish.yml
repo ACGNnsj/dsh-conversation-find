@@ -18,10 +18,14 @@ jobs:
 
       # Node 24 ships npm >= 11.5.1, the first version that supports OIDC
       # token exchange. Node 22 ships npm 10 and will fail.
+      #
+      # registry-url is deliberately NOT set: actions/setup-node would write an
+      # .npmrc containing //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN},
+      # and npm then prefers that (empty/placeholder) token over the OIDC
+      # exchange, failing the publish with a 404 that hides the real 401.
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org
           package-manager-cache: false
 
       - name: Sanity check
@@ -30,6 +34,9 @@ jobs:
           node -e "const p=require('./package.json'); if(!p.name||!p.version) process.exit(1)"
 
       # NODE_AUTH_TOKEN must be COMPLETELY ABSENT here, not an empty string:
-      # npm only falls back to the OIDC exchange when no token env var exists.
+      # npm only falls back to the OIDC exchange when no token is available.
+      # Remove any .npmrc that could carry a stale token, then publish.
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: |
+          rm -f "$NPM_CONFIG_USERCONFIG" "$HOME/.npmrc" .npmrc
+          env -u NODE_AUTH_TOKEN -u NODE_AUTH -u NPM_TOKEN npm publish --provenance --access public
