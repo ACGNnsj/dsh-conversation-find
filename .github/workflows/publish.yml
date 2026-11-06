@@ -48,5 +48,4 @@ jobs:
       - name: Publish to npm
         run: |
           rm -f "$NPM_CONFIG_USERCONFIG" "$HOME/.npmrc" .npmrc
-          echo "oidc env: url=${ACTIONS_ID_TOKEN_REQUEST_URL:+set} token=${ACTIONS_ID_TOKEN_REQUEST_TOKEN:+set}"
-          env -u NODE_AUTH_TOKEN -u NODE_AUTH -u NPM_TOKEN npm publish --provenance --access public --loglevel verbose
+          env -u NODE_AUTH_TOKEN -u NODE_AUTH -u NPM_TOKEN npm publish --provenance --access public
