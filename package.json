@@ -1,8 +1,11 @@
 {
   "name": "dsh-conversation-find",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "DSH 主界面查找（类浏览器 Ctrl+F）：会话页只搜消息流，其他页面搜整页，高亮并逐条跳转。",
   "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
   "license": "MIT",
   "author": "ACGNnsj",
   "main": "lib/index.js",

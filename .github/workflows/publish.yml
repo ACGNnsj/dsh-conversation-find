@@ -40,6 +40,7 @@ jobs:
       - name: Sanity check
         run: |
           node --check lib/client.js
+          npm test
           node -e "const p=require('./package.json'); if(!p.name||!p.version) process.exit(1)"
 
       # NODE_AUTH_TOKEN must be COMPLETELY ABSENT here, not an empty string:
