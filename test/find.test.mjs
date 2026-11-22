@@ -32,6 +32,9 @@ test('exact count versus overflow', () => {
 test('Unicode case folding cannot produce an out-of-bounds range', () => {
   engine('İX', `assert.equal(highlight('x').length, 1)`)
 })
+test('regular-expression characters remain literal query text', () => {
+  engine('a.b [x] $10', `assert.equal(highlight('[x]').length, 1); assert.equal(highlight('$10').length, 1)`)
+})
 test('header Find refocuses an open bar instead of closing it', () => {
   assert.ok(source.includes('window.addEventListener(OPEN_EVENT, onOpenEvent)'))
   assert.ok(between('    function FindButton()', '    function apply(').includes('new CustomEvent(OPEN_EVENT)'))
