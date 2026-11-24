@@ -94,7 +94,7 @@ dsh plugin --profile desktop add file:D:/path/to/dsh-conversation-find
 
 不订阅 chat store，纯 DOM 层：`TreeWalker` 遍历文本节点 → `Range.surroundContents` 包 `<mark>` → `scrollIntoView({ block: 'center' })` 跳转。这样对任何渲染路径（消息、diff、工具卡片、设置页表单）都成立，不依赖内部数据结构。
 
-UI 复用宿主自己的 `@deepseek-ai/dsh-client-ui-primitives`：设置行的下拉就是宿主同款 `Menu`（深色浮层 + 勾选），因此与「应用内侧栏」「繁忙时的发送行为」等行视觉一致；拿不到该模块时自动降级为原生 `<select>`。
+UI 复用宿主自己的 `@deepseek-ai/dsh-client-ui-primitives`：设置行的下拉就是宿主同款 `Menu` 浮层，因此与「应用内侧栏」「繁忙时的发送行为」等行视觉一致；拿不到该模块时自动降级为原生 `<select>`。查找条本身同样只消费宿主的主题 token（`--dsw-specific-menu`、`--dsw-alias-label-*`、`--dsw-elevation-prominent` 等）：浅色主题下是浅色、深色主题下是深色，明暗切换即时跟随；token 缺失时回退到原深色硬编码值。
 
 ```
 package.json        # dsh.bundle.patch + dsh.client{inject,platform} + exports["./client"]
@@ -111,6 +111,7 @@ lib/client.js       # 全部逻辑：查找条 + 高亮 + 跳转 + 设置行
 
 ## 变更记录
 
+- **未发布** 查找条改为跟随宿主主题：浮面、文字、悬停、投影、毛玻璃全部换成主题 token，浅色主题不再显示为黑色查找条。
 - **0.3.5** 流式更新不再丢弃最后的变更，重搜保留当前序号；超过 2,000 项时明确显示 `2000+`；整页模式按页面身份恢复搜索；修复 Unicode 大小写匹配的范围越界、清空搜索词后的状态残留，以及输入法组合状态下的按键误触；重按快捷键或放大镜只聚焦，不再意外关闭。
 - **0.3.4** 版本号提升，用于验证 GitHub Actions 经由 npm Trusted Publishing（OIDC）自动发布；功能与 0.3.3 相同。
 - **0.3.3** 每个页面保留自己最近的搜索词：会话页按 session id、其他页按标题记忆（localStorage，最多 50 个），打开即恢复；切换页面（保留模式）自动换成新页的词。
